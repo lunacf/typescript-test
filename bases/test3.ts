@@ -62,7 +62,9 @@ const usuarioConError: DatosLogin = {
     esperaError: true
 };
 
-
-console.log(usuarioSinError)
+/* console.log(usuarioSinError)
 console.log(usuarioConError)
+*/
+
+
 
