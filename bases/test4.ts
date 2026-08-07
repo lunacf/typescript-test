@@ -4,7 +4,6 @@
 // .filter() (te quedas solo con los que cumplen una condición)
 // .map() (transformas cada elemento) -> sacar solo titulos
 
-
 interface TestCase {
     id: number;
     title: string;
@@ -61,9 +60,15 @@ for (const caso of casos){
 }
 
 // Solo los fallidos — misma idea, con un if adentro del loop
+
 console.log("--- Solo fallidos ---");
+let encontroFallidos = false;
 for (const caso of casos) {
-    if (caso.result?.toLowerCase() === "passed") {
+    if (caso.result?.toLowerCase() === "asdas") {
+        encontroFallidos = true;
         console.log(`${caso.id} ${caso.title} - ${caso.result}`);
     }
+}
+if (!encontroFallidos) {
+    console.log("No se encontraron resultados");
 }
