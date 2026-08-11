@@ -72,3 +72,5 @@ for (const caso of casos) {
 if (!encontroFallidos) {
     console.log("No se encontraron resultados");
 }
+
+
