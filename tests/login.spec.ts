@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { LoginPage } from '../pages/LoginPage';
 
 test('has title', async ({ page }) => {
     await page.goto('https://www.saucedemo.com/');
@@ -28,7 +28,7 @@ test('login no ok', async ({ page }) => {
 });
 
 
-test('contador-carrito-ok', async ({page}) => {
+test('contador-carrito-ok', async ({ page }) => {
 
     await page.goto('https://www.saucedemo.com/');
 
