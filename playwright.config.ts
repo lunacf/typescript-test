@@ -33,6 +33,13 @@ export default defineConfig({
     testIdAttribute: 'data-test'
   },
 
+  /* http on */
+  webServer: {
+    command: 'npx http-server app -p 3000',
+    url: 'http://localhost:3000',
+    reuseExistingServer: !process.env.CI,
+  },
+
   /* Configure projects for major browsers */
   projects: [
     {

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Registration Form</title>
+</head>
+<body>
+  <h1>New User Registration</h1>
+  <form id="registrationForm" novalidate>
+    <label for="fullName">Full Name</label>
+    <input type="text" id="fullName" data-test="input-full-name" required>
+
+    <label for="documentId">Document ID</label>
+    <input type="text" id="documentId" data-test="input-document-id" required>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" data-test="input-email" required>
+
+    <label for="birthDate">Birth Date</label>
+    <input type="date" id="birthDate" data-test="input-birth-date" required>
+
+    <button type="submit" data-test="submit-button">Register</button>
+  </form>
+
+  <p id="successMessage" data-test="success-message" style="display:none;">Registration successful!</p>
+  <p id="errorMessage" data-test="error-message" style="display:none;"></p>
+
+  <script>
+    document.getElementById('registrationForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const fullName = document.getElementById('fullName').value.trim();
+      const documentId = document.getElementById('documentId').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const errorMsg = document.getElementById('errorMessage');
+      const successMsg = document.getElementById('successMessage');
+
+      errorMsg.style.display = 'none';
+      successMsg.style.display = 'none';
+
+      if (!fullName) {
+        errorMsg.textContent = 'Full name is required';
+        errorMsg.style.display = 'block';
+        return;
+      }
+      if (!/^\d{7,8}$/.test(documentId)) {
+        errorMsg.textContent = 'Document ID must be 7 or 8 digits';
+        errorMsg.style.display = 'block';
+        return;
+      }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        errorMsg.textContent = 'Invalid email format';
+        errorMsg.style.display = 'block';
+        return;
+      }
+
+      successMsg.style.display = 'block';
+    });
+  </script>
+</body>
+</html>
